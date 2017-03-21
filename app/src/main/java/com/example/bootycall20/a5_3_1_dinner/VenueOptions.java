@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
-import static com.example.bootycall20.a5_3_1_dinner.MainActivity.userInput;
+import java.util.List;
 
 /**
  * Created by BootyCall2.0 on 3/14/2017.
@@ -18,18 +18,20 @@ import static com.example.bootycall20.a5_3_1_dinner.MainActivity.userInput;
 public class VenueOptions extends AppCompatActivity {
 
     String venueText;
-
+    EditText venueOption1;
+    public static List<String> userInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue_options_display);
 
+        userInput = MainActivity.userInput;
+         venueText = new String();
 
-
-        EditText venueOption1 = (EditText) findViewById(R.id.venueOption1);
+        venueOption1 = (EditText) findViewById(R.id.venueOption1);
         ToggleButton venueButton1 = (ToggleButton) findViewById(R.id.venueButton1);
         venueText = userInput.get(0);
-        venueButton1.setText(venueText);
+        venueButton1.setTextOn(venueText);
 
     }
     @Override

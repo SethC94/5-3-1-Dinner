@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,7 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         venueOption1 = (EditText) findViewById(R.id.venueOption1);
         venueButton1 = (ToggleButton) findViewById(R.id.venueButton1);
-        final Button button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.button);
+        userInput = new ArrayList<>();
+       userInputText = new String();
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
