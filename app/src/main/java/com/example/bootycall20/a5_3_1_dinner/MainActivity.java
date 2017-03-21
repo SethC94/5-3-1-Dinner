@@ -6,14 +6,45 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ToggleButton;
+
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    Button button;
+    EditText venueOption1;
+    ToggleButton venueButton1;
+    public static List<String> userInput;
+    String userInputText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        venueOption1 = (EditText) findViewById(R.id.venueOption1);
+        venueButton1 = (ToggleButton) findViewById(R.id.venueButton1);
+        final Button button = (Button) findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                venueOption1 = (EditText) findViewById(R.id.venueOption1);
+                getUserInput(userInput);
+
+                Intent intent = new Intent(v.getContext(), VenueOptions.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -33,13 +64,18 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+
+
         return super.onOptionsItemSelected(item);
 
 
     }
 
-    public void venueOptions(View view) {
-        Intent intent = new Intent(this, VenueOptions.class);
-        startActivity(intent);
+    public List<String> getUserInput(List<String> userInput){
+        venueOption1 = (EditText) findViewById(R.id.venueOption1);
+        String userInput1 = venueOption1.getText().toString();
+        userInput.add(userInput1);
+        return userInput;
     }
+
 }
