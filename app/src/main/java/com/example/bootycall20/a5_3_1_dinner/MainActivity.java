@@ -8,19 +8,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ToggleButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
+
     EditText venueOption1;
-    ToggleButton venueButton1;
-    public static List<String> userInput;
-    String userInputText;
+    EditText venueOption2;
+    EditText venueOption3;
+    EditText venueOption4;
+    EditText venueOption5;
+
+    Button UpdateVenueButton;
+
+    public static ArrayList<String> userInput;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +33,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         venueOption1 = (EditText) findViewById(R.id.venueOption1);
-        venueButton1 = (ToggleButton) findViewById(R.id.venueButton1);
-        button = (Button) findViewById(R.id.button);
-        userInput = new ArrayList<>();
-       userInputText = new String();
+        venueOption2 = (EditText) findViewById(R.id.venueOption2);
+        venueOption3 = (EditText) findViewById(R.id.venueOption3);
+        venueOption4 = (EditText) findViewById(R.id.venueOption4);
+        venueOption5 = (EditText) findViewById(R.id.venueOption5);
+
+
+        UpdateVenueButton = (Button) findViewById(R.id.button);
+
+        userInput = new ArrayList<>(4);
 
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        UpdateVenueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 venueOption1 = (EditText) findViewById(R.id.venueOption1);
-                getUserInput(userInput);
+                getUserInput(userInput(0));
+
+                venueOption2 = (EditText) findViewById(R.id.venueOption2);
+                getUserInput(userInput(1));
+
+                venueOption3 = (EditText) findViewById(R.id.venueOption3);
+                getUserInput(userInput(2));
+
+                venueOption4 = (EditText) findViewById(R.id.venueOption4);
+                getUserInput(userInput(3));
+
+                venueOption5 = (EditText) findViewById(R.id.venueOption5);
+                getUserInput(userInput(4));
 
                 Intent intent = new Intent(v.getContext(), VenueOptions.class);
                 startActivity(intent);
@@ -60,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up UpdateVenueButton, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
@@ -76,10 +99,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public List<String> getUserInput(List<String> userInput){
+    public ArrayList<String> getUserInput(ArrayList<String> userInput){
         venueOption1 = (EditText) findViewById(R.id.venueOption1);
         String userInput1 = venueOption1.getText().toString();
         userInput.add(userInput1);
+
+        venueOption2 = (EditText) findViewById(R.id.venueOption2);
+        String userInput2 = venueOption2.getText().toString();
+        userInput.add(userInput2);
+
+        venueOption3 = (EditText) findViewById(R.id.venueOption3);
+        String userInput3 = venueOption3.getText().toString();
+        userInput.add(userInput3);
+
+        venueOption4 = (EditText) findViewById(R.id.venueOption4);
+        String userInput4 = venueOption4.getText().toString();
+        userInput.add(userInput4);
+
+        venueOption5 = (EditText) findViewById(R.id.venueOption5);
+        String userInput5 = venueOption5.getText().toString();
+        userInput.add(userInput5);
+
         return userInput;
     }
 

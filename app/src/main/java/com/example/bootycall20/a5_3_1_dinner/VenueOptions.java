@@ -18,20 +18,41 @@ import java.util.List;
 public class VenueOptions extends AppCompatActivity {
 
     String venueText;
+
     EditText venueOption1;
+    EditText venueOption2;
+    EditText venueOption3;
+    EditText venueOption4;
+    EditText venueOption5;
+
     public static List<String> userInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue_options_display);
 
         userInput = MainActivity.userInput;
-         venueText = new String();
+        venueText = new String();
 
         venueOption1 = (EditText) findViewById(R.id.venueOption1);
+        venueOption2 = (EditText) findViewById(R.id.venueOption2);
+        venueOption3 = (EditText) findViewById(R.id.venueOption3);
+        venueOption4 = (EditText) findViewById(R.id.venueOption4);
+        venueOption5 = (EditText) findViewById(R.id.venueOption5);
+
         ToggleButton venueButton1 = (ToggleButton) findViewById(R.id.venueButton1);
+        ToggleButton venueButton2 = (ToggleButton) findViewById(R.id.venueButton2);
+        ToggleButton venueButton3 = (ToggleButton) findViewById(R.id.venueButton3);
+        ToggleButton venueButton4 = (ToggleButton) findViewById(R.id.venueButton4);
+        ToggleButton venueButton5 = (ToggleButton) findViewById(R.id.venueButton5);
+
         venueText = userInput.get(0);
         venueButton1.setTextOn(venueText);
+        venueButton2.setTextOn(venueText);
+        venueButton3.setTextOn(venueText);
+        venueButton4.setTextOn(venueText);
+        venueButton5.setTextOn(venueText);
 
     }
     @Override
@@ -44,7 +65,7 @@ public class VenueOptions extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up UpdateVenueButton, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
